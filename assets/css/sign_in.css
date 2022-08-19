@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+html{
+    font-size: 85%;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+img{
+    width: 100%;
+    min-height: 100vh;
+    z-index: -1;
+    position: absolute;
+    opacity: 0.5;
+}
+.container{
+    display: flex;
+}
+.card{
+    margin: 5rem auto 0;
+    width: 25rem;
+    padding: 0.6rem;
+    border: 0.2rem solid white;
+    background-color: #fff;
+    border-radius: 1rem;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    margin-top: 3rem;
+}
+form input{
+    display: block;
+    margin: 0.4rem;
+    background-color: rgb(237, 237, 237);
+    border: 0.1rem solid rgb(1, 79, 1);
+    outline: none;
+    border-radius: 0.3rem;
+    padding: 0.38rem;
+    font-size: 1.3rem;
+}
+form input:focus{
+    border: 0.1rem solid rgb(0, 193, 0);
+}
+h1,h2{
+    text-align: center;
+}
+input[type="submit"]{
+    background-color: green;
+    color: white;
+    cursor: pointer;
+}
+input[type="submit"]:hover{
+    background-color: rgb(4, 182, 4);
+}
+input[type="submit"]:active{
+    background-color: rgb(3, 74, 3);
+}
+.card h4{
+    margin: 0.25rem;
+}
+@media only screen and (max-width:998px) {
+    html{
+        font-size: 81%;
+    }
+}
+@media only screen and (max-width:768px) {
+    html{
+        font-size: 77%;
+    }
+    .card h4{
+        margin: 0.21rem;
+    }
+}
+@media only screen and (max-width:500px) {
+    html{
+        font-size: 70%;
+    }
+    .card{
+        width:85vw;
+        margin: 5rem auto;
+        height: 25rem;
+    }
+    form,h4{
+        margin-top: 5rem;
+    }
+}
