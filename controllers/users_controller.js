@@ -46,7 +46,7 @@ module.exports.createSession=function(request,response){
             console.log("Error in finding user in signing in");
             return
         }
-        console.log(user)
+        console.log("Logged in User:",user)
         if(user){
             // User found
             if(user.password!=request.body.password){
