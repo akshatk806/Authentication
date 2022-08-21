@@ -17,12 +17,11 @@ module.exports.create=function(request,response){
     if(request.body.password!=request.body.cpassword){
         return response.redirect('back');
     }
-    User.find({school:"USICT"},function(err,user){      //in case of findMany() user is javascript object(collections) ,and in case of find() the user is javascript array of objects(collection of documents) 
+    User.findOne({username:request.body.username},function(err,user){      //in case of findMany() user is javascript object(collections) ,and in case of find() the user is javascript array of objects(collection of documents) 
         if(err){
             console.log("Error in finding user in signing up");
             return;
         }
-        console.log("School USICT:",user);
         if(!user){
             User.create(request.body,function(err,user){
                 if(err){
