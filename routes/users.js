@@ -6,5 +6,6 @@ router.get('/sign-in',users_controller.signin)
 router.get('/sign-up',users_controller.signup)
 
 router.post('/create',users_controller.create)
+router.post('/create-session',users_controller.createSession)
 
 module.exports=router

@@ -38,3 +38,26 @@ module.exports.create=function(request,response){
         }
     })
 }
+
+// Sign-in
+module.exports.createSession=function(request,response){
+    User.findOne({username:request.body.username},function(err,user){
+        if(err){
+            console.log("Error in finding user in signing in");
+            return
+        }
+        console.log(user)
+        if(user){
+            // User found
+            if(user.password!=request.body.password){
+                return response.redirect('back');
+            }
+            response.cookie('user_id',user.id);
+            return response.redirect('/');
+        }
+        else{
+            // User not found
+            return response.redirect('back')
+        }
+    })
+}
