@@ -53,11 +53,43 @@ module.exports.createSession=function(request,response){
                 return response.redirect('back');
             }
             response.cookie('user_id',user.id);
-            return response.redirect('/');
+            return response.redirect('/users/profile');
         }
         else{
             // User not found
             return response.redirect('back')
         }
+    })
+}
+
+// Display the profile
+module.exports.profile=function(request,response){
+    if(request.cookies.user_id){
+        User.findById(request.cookies.user_id,function(err,user){
+            if(user){
+                return response.render('profile',{
+                    title:"GGSIPU | Profile",
+                    user:user
+                })
+            }
+            else{
+                return response.redirect('/users/sign-in')
+            }
+        })
+    }
+    else{
+        response.redirect('/users/sign-in');
+    }
+}
+
+// Log out
+module.exports.destroySession=function(request,response){
+    User.findOne({username:request.body.username},function(err,user){
+        if(err){
+            console.log("Error in signing out");
+            return
+        }
+        response.clearCookie("user_id");
+        response.redirect('/users/sign-in');
     })
 }
