@@ -1,5 +1,6 @@
 const mongoose=require('mongoose');
 const userSchema=new mongoose.Schema({
+    // The name of the fields is same as name="" attrirute in input tag
     name:{
         type:String,
         required:true,
@@ -14,12 +15,16 @@ const userSchema=new mongoose.Schema({
         required:true,
         unique:true
     },
+    password:{
+        type:String,
+        required:true
+    },
     phone:{
-        type:Number,
+        type:String,
         required:true,
         unique:true
     },
-    university_school:{
+    school:{
         type:String,
         required:true,
     },
